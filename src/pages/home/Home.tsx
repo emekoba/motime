@@ -7,112 +7,23 @@ import bg1 from "../../assets/images/bg1.jpg";
 import SearchBar from "../../components/searchbar/SearchBar";
 import movieService from "../../services/movie.service";
 
+type MovieResponse = {
+	success: boolean;
+	data?: any;
+};
+
 export default function Home() {
-	const [movieList, setMovieList] = useState([
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Iron Man",
-			images: [
-				"https://media.wired.com/photos/59ef63d734ce5c0e0a752f30/16:9/w_960,h_540,c_limit/IronMan3-HP.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Iron Man",
-			images: [
-				"https://media.wired.com/photos/59ef63d734ce5c0e0a752f30/16:9/w_960,h_540,c_limit/IronMan3-HP.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Iron Man",
-			images: [
-				"https://media.wired.com/photos/59ef63d734ce5c0e0a752f30/16:9/w_960,h_540,c_limit/IronMan3-HP.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-		{
-			title: "Iron Man",
-			images: [
-				"https://media.wired.com/photos/59ef63d734ce5c0e0a752f30/16:9/w_960,h_540,c_limit/IronMan3-HP.jpg",
-			],
-		},
-		{
-			title: "Star Wars",
-			images: [
-				"https://c4.wallpaperflare.com/wallpaper/356/487/776/star-wars-background-darth-vader-darth-vader-wallpaper-preview.jpg",
-				"https://c4.wallpaperflare.com/wallpaper/86/598/484/star-wars-millennium-falcon-star-wars-the-force-awakens-c-3po-wallpaper-preview.jpg",
-			],
-		},
-	]);
+	const [movieList, setMovieList] = useState<any>([]);
 	const [query, setQuery] = useState("");
 
 	useEffect(() => {
 		init();
-	}, []);
+	}, [query]);
 
 	async function init() {
-		const resp = await movieService.getMovies(query);
+		const resp: MovieResponse = await movieService.getMovies(query);
 		console.log("🚀 ~ file: Home.tsx:111 ~ useEffect ~ resp:", resp);
+		setMovieList([...resp.data]);
 	}
 
 	return (
@@ -144,12 +55,12 @@ export default function Home() {
 
 			<div className="home-col1 hide-scroll">
 				{movieList
-					.filter((mov) => {
+					.filter((mov: any) => {
 						if (query === "") return mov;
 						return mov.title.toLowerCase().includes(query.toLowerCase());
 					})
-					.map((e) => (
-						<Movie key={e.title} title={e.title} image={e["images"][0]} />
+					.map((e: any) => (
+						<Movie key={e.title} title={e["title"]} poster={e["poster"]} />
 					))}
 
 				{/* <div className="home-carousel">

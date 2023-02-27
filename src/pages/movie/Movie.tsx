@@ -3,16 +3,16 @@ import { BiCategoryAlt } from "react-icons/bi";
 
 type MovieProps = {
 	title?: string;
-	image?: string;
+	poster?: string;
 };
 
-export default function Movie({ title, image }: MovieProps) {
+export default function Movie({ title, poster }: MovieProps) {
 	return (
 		<div
 			className="glass movie"
 			style={{
 				backgroundSize: "cover",
-				backgroundImage: `url(${image})`,
+				backgroundImage: `url(${poster})`,
 			}}
 			title={title}
 		>
