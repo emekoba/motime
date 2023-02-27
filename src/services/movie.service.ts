@@ -4,7 +4,7 @@ const ENDPOINTS = {
 	MOVIES: "/movies",
 };
 
-async function getMovies(query: string) {
+async function getMovies(query: string, sort: string) {
 	return fetch(API_URL + ENDPOINTS.MOVIES + `?query=${query}`)
 		.then((response) => response.json())
 		.then((data) => ({
