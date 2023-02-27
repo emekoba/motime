@@ -1,0 +1,20 @@
+.movie {
+	height: 200px;
+	width: 300px;
+	padding: 10px;
+}
+
+.movie-row1 {
+	display: flex;
+	color: tomato;
+	font-weight: bold;
+	align-items: center;
+	gap: 10px;
+}
+
+.movie-menu {
+	height: 40px;
+	width: 40px;
+	display: grid;
+	place-items: center;
+}

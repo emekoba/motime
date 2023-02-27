@@ -4,6 +4,7 @@
 
 body {
 	margin: 0;
+	padding: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
 		sans-serif;
@@ -14,4 +15,101 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+button {
+	outline: none;
+	border: none;
+	/* transition: 0.1s ease-in-out; */
+	background: none;
+	cursor: pointer;
+}
+
+button:active {
+	transform: scale(0.9);
+}
+
+button:start {
+	animation: entrance 700ms ease-out;
+}
+
+input {
+	outline: none;
+	height: 100%;
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-weight: bold;
+	font-size: 2.5vh;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+@keyframes bounceIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes flash {
+	0% {
+		background: rgb(212, 152, 141);
+	}
+	100% {
+		background: none;
+	}
+}
+
+@keyframes entrance {
+	0% {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.entrance {
+	animation: entrance 700ms ease-out;
+}
+
+.glass {
+	background-color: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(5px);
+	border-radius: 12px;
+	/* -webkit-animation-name: bounceIn;
+	animation-name: bounceIn;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both; */
+	/* box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5); */
+}
+
+@media only screen and (max-width: 600px) {
+	.glass {
+		border-radius: 10px !important;
+	}
+}
+
+.hide-scroll::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scroll {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }

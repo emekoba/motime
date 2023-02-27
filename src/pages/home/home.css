@@ -1,0 +1,59 @@
+.home {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto 1fr;
+	gap: 50px;
+
+	background: #0f2027; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#2c5364,
+		#203a43,
+		#0f2027
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#2c5364,
+		#203a43,
+		#0f2027
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.menu {
+	height: 30vh;
+	max-height: 250px;
+	width: 80px;
+	margin: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 30px;
+	grid-row: 2/3;
+}
+
+.home-col1 {
+	grid-row: 2/3;
+	grid-column: 2/3;
+	height: 80vh;
+	width: 95%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	overflow-y: scroll;
+	gap: 20px;
+	padding-bottom: 50px;
+}
+
+.home-carousel {
+	color: white;
+	height: 200px;
+	width: 500px;
+}
+
+.home-carousel > h1 {
+	font-size: 2vw;
+}

@@ -1,0 +1,12 @@
+.search-bar {
+	grid-column: 2/3;
+	margin-top: 30px;
+	margin-right: 130px;
+	height: 8vh;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	gap: 30px;
+	padding-inline: 30px;
+	width: 95%;
+}
