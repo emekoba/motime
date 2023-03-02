@@ -41,7 +41,13 @@ export default function MoviePreview({
 				</button>
 			</div>
 
-			<div style={{ background: `url(${poster || defaultBackDrop})` }} />
+			<div
+				style={{
+					backgroundSize: "cover",
+					backgroundRepeat: "no-repeat",
+					backgroundImage: `url(${poster || defaultBackDrop})`,
+				}}
+			/>
 
 			<div className="glass movie-preview-info">
 				<h2>

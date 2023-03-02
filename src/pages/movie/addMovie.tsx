@@ -27,7 +27,6 @@ export default function AddMovie({ submit }: any) {
 		if (form.title.length != 0) {
 			submit?.(form);
 			setForm({
-				...form,
 				title: "",
 				poster: "",
 				synopsis: "",
