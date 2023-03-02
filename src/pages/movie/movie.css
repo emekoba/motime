@@ -2,19 +2,155 @@
 	height: 200px;
 	width: 300px;
 	padding: 10px;
-}
-
-.movie-row1 {
 	display: flex;
-	color: tomato;
-	font-weight: bold;
-	align-items: center;
-	gap: 10px;
+	cursor: pointer;
 }
 
-.movie-menu {
-	height: 40px;
-	width: 40px;
+.add-to-cat {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	padding: 5px;
+}
+
+.movie-title {
+	height: 30px;
 	display: grid;
 	place-items: center;
+	padding-inline: 10px;
+	color: white;
+	border-radius: 5px;
+}
+
+.addMovie {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: grid;
+	place-items: center;
+}
+
+.add-movie-panel {
+	width: 50%;
+	min-width: 450px;
+	max-width: 700px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	padding: 30px;
+	gap: 50px;
+}
+
+.add-mov-preview {
+	grid-column: 1/2;
+	grid-row: 1/2;
+	display: grid;
+	place-items: center;
+	border-radius: 15px;
+	height: 150px;
+}
+
+.form {
+	grid-row: 1/4;
+}
+
+.form > .glass:nth-of-type(1) {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr auto;
+}
+
+.form > input {
+	width: 90%;
+	height: 60px;
+	padding-inline: 20px;
+	gap: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: black;
+	font-size: 15px;
+}
+
+.form > input:nth-of-type(1) {
+	margin-bottom: 0px;
+}
+.form > div {
+	margin-bottom: 10px;
+}
+
+.form > textarea {
+	color: rgba(0, 0, 0, 0.301);
+	font-size: 15px;
+	width: 90%;
+	resize: none;
+	padding: 20px;
+	outline: none;
+	color: black;
+	font-size: 15px;
+}
+
+.form > textarea::placeholder {
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.submit {
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	height: 50px;
+	width: 50px;
+	display: grid;
+	place-items: center;
+}
+
+.err {
+	font-size: 13px;
+	color: red;
+	font-weight: normal;
+}
+
+.movie-preview {
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+	display: grid;
+	padding: 30px;
+}
+
+.preview-header {
+	display: flex;
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	gap: 30px;
+}
+
+.movie-preview-img {
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+	animation: bounceIn;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(37, 36, 36, 0.501);
+}
+
+.movie-preview-info {
+	position: absolute;
+	bottom: 50px;
+	right: 50px;
+	padding: 30px;
+	color: white;
+	margin-left: 55px;
+}
+
+.movie-preview-info > h2 > span,
+.movie-preview-info > h4 > span {
+	color: red;
+}
+
+.close-preview {
+	padding: 10px;
 }

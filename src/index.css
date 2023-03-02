@@ -48,6 +48,10 @@ input {
 	font-size: 2.5vh;
 }
 
+input::placeholder {
+	color: rgba(33, 32, 32, 0.853);
+}
+
 body::-webkit-scrollbar {
 	display: none;
 }

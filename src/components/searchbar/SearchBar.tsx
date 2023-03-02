@@ -10,7 +10,7 @@ type SearchBarProps = {
 };
 
 export default function SearchBar({ onChange, value, onSort }: SearchBarProps) {
-	const [sortOpen, setsortOpen] = useState(true);
+	const [sortOpen, setsortOpen] = useState(false);
 
 	return (
 		<div className="glass search-bar">
@@ -24,7 +24,7 @@ export default function SearchBar({ onChange, value, onSort }: SearchBarProps) {
 			{sortOpen && (
 				<div className="glass sort-menu">
 					<button onClick={() => onSort("ASC")}>ASC</button>
-					<button onClick={() => onSort("ASC")}>DESC</button>
+					<button onClick={() => onSort("DESC")}>DESC</button>
 					<button onClick={() => onSort("CLEAR")}>CLEAR</button>
 				</div>
 			)}
